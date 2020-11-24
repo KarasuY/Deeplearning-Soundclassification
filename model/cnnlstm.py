@@ -70,33 +70,3 @@ class CNNLSTMModel(tf.keras.Model):
         #check
         correct_predictions = tf.equal(tf.argmax(logits, 1), tf.argmax(labels, 1))
         return tf.reduce_mean(tf.cast(correct_predictions, tf.float32))
-
-def train(model, train_inputs, train_labels):
-    pass
-
-
-def get_batch(data, start_index, batch_size):
-    return data[start_index : (start_index+batch_size)]
-
-def test(model, test_inputs, test_labels):
-    pass
-
-def main():
-
-    if len(sys.argv) != 2 or sys.argv[1] not in {"CNN+LSTM", "LSTM"}:
-        print("USAGE: Sound Classification for Hazardous Environmental Sound")
-        print("<Model Type>: [CNN+LSTM/LSTM]")
-        exit()
-
-
-    if sys.argv[1] == "CNN+LSTM":
-        model = CNNLSTMModel(_,_)
-    elif sys.argv[1] == "LSTM":
-        #model = ReinforceWithBaseline(_,_)
-        pass
-
-
-    pass
-
-if __name__ == '__main__':
-    main()
